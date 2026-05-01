@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Teleportation Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Quantum Teleportation</h1>
+            <p>A dynamic visualization of the foundational quantum protocol using Qiskit</p>
+        </header>
+
+        <main>
+            <section class="controls glass-panel">
+                <h2>Control Panel</h2>
+                
+                <div class="input-group">
+                    <label for="state-select">Select Initial Qubit State ($|\psi\rangle$):</label>
+                    <select id="state-select">
+                        <option value="0">|0⟩ (Zero State)</option>
+                        <option value="1">|1⟩ (One State)</option>
+                        <option value="+">|+⟩ (Plus State)</option>
+                        <option value="-">|-⟩ (Minus State)</option>
+                        <option value="i">|i⟩ (+Y State)</option>
+                        <option value="-i">|-i⟩ (-Y State)</option>
+                        <option value="random">Random State</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button id="btn-ideal" class="btn primary">Run Ideal Simulation</button>
+                    <button id="btn-noisy" class="btn secondary">Run Noisy Simulation</button>
+                    <button id="btn-hardware" class="btn hardware">Run on IBM Hardware</button>
+                    <button id="btn-fidelity" class="btn fidelity">Fidelity Analysis (All States)</button>
+                </div>
+            </section>
+
+            <section class="results-area">
+                <!-- Loading overlay -->
+                <div id="loader" class="loader-container hidden">
+                    <div class="spinner"></div>
+                    <p id="loader-text">Simulating Quantum Circuit...</p>
+                </div>
+
+                <!-- Content Panels -->
+                <div id="results-content" class="results-content hidden">
+                    
+                    <div id="circuit-panel" class="result-panel glass-panel hidden">
+                        <h3>Transpiled Circuit</h3>
+                        <div class="img-wrapper">
+                            <img id="circuit-img" src="" alt="Circuit Diagram">
+                        </div>
+                    </div>
+
+                    <div id="histogram-panel" class="result-panel glass-panel hidden">
+                        <h3>Measurement Histogram</h3>
+                        <div class="img-wrapper">
+                            <img id="histogram-img" src="" alt="Measurement Histogram">
+                        </div>
+                        <div class="counts-data" id="counts-data"></div>
+                    </div>
+
+                    <div id="fidelity-panel" class="result-panel glass-panel full-width hidden">
+                        <h3>Fidelity Comparison</h3>
+                        <div class="img-wrapper">
+                            <img id="fidelity-img" src="" alt="Fidelity Chart">
+                        </div>
+                    </div>
+
+                    <div id="hardware-panel" class="result-panel glass-panel full-width hidden">
+                        <h3>Hardware Execution Status</h3>
+                        <div class="hardware-status" id="hardware-status"></div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal hidden">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img" alt="Enlarged Graph">
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
