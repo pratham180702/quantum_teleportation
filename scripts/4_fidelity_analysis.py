@@ -18,7 +18,8 @@ def main():
     print("--- Teleportation Fidelity Analysis ---")
     
     # We will test multiple states
-    states_to_test = ["0", "1", "+", "-", "i", "-i", "random"]
+    # states_to_test = ["0", "1", "+", "-", "i", "-i", "random"]
+    states_to_test = ["0", "1", "+", "-"]
     
     ideal_fidelities = []
     noisy_fidelities = []

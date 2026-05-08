@@ -31,20 +31,20 @@ def prepare_state_circuit(state_name="0"):
     # Left and Right hand states 
     # Y-basis
     # H . S state
-    elif state_name == "i":
-        qc.h(0)
-        qc.s(0)
-    elif state_name == "-i":
-        qc.x(0)
-        qc.h(0)
-        qc.s(0)
+    # elif state_name == "i":
+    #     qc.h(0)
+    #     qc.s(0)
+    # elif state_name == "-i":
+    #     qc.x(0)
+    #     qc.h(0)
+    #     qc.s(0)
 
-    elif state_name == "random":
-        # Random angles for U gate
-        theta = np.random.uniform(0, np.pi)
-        phi = np.random.uniform(0, 2*np.pi)
-        lam = np.random.uniform(0, 2*np.pi)
-        qc.u(theta, phi, lam, 0)
+    # elif state_name == "random":
+    #     # Random angles for U gate
+    #     theta = np.random.uniform(0, np.pi)
+    #     phi = np.random.uniform(0, 2*np.pi)
+    #     lam = np.random.uniform(0, 2*np.pi)
+    #     qc.u(theta, phi, lam, 0)
     else:
         raise ValueError("Unknown state name. Use '0', '1', '+', '-', 'i', '-i', or 'random'.")
         

@@ -100,7 +100,9 @@ def run_hardware_execution(state_name: str):
 
 def run_fidelity_analysis():
     """Run fidelity analysis across all states."""
-    states_to_test = ["0", "1", "+", "-", "i", "-i", "random"]
+    # states_to_test = ["0", "1", "+", "-", "i", "-i", "random"]
+    states_to_test = ["0", "1", "+", "-"]
+
     ideal_fidelities = []
     noisy_fidelities = []
     
@@ -145,6 +147,9 @@ def run_fidelity_analysis():
         fid_noisy = state_fidelity(ideal_state, rho_bob_noisy)
         noisy_fidelities.append(float(fid_noisy))
 
+    
+    
+    
     timestamp = int(time.time())
     chart_filename = f"outputs/fidelity_chart_{timestamp}.png"
     
